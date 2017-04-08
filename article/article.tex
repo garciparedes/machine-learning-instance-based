@@ -92,14 +92,30 @@
 
 
 			\begin{equation}
-				D_{euclidea}(a,b) = \sqrt{(a_x - b_x)^2 + (a_y - b_y)^2}
+				D_{euclidean}(a,b) = \sqrt{(a_x - b_x)^2 + (a_y - b_y)^2}
 			\end{equation}
 
+			\begin{equation}
+				R_{euclidean} = \{4.242_e, 3.605_e, 3.969_e, 3.206_e, 4.103_c, 3.457_c, 3.605_c\}
+			\end{equation}
 
 			\paragraph{}
 			[TODO]
 
+			\begin{equation}
+				min(R_{euclidean},1) = \{ 3.206_e \}
+			\end{equation}
 
+			\begin{equation}
+				min(R_{euclidean},3) = \{ 3.206_e, 3.457_c, 3.605_e\}
+			\end{equation}
+
+			\paragraph{}
+			Empate
+
+			\begin{equation}
+				min(R_{euclidean},5) = \{ 3.206_e, 3.457_c, 3.605_e, 3.605_c,  3.969_e \}
+			\end{equation}
 
 		\subsection{Distancia Euclídea Ponderada: $w_x=0.2, w_y=0.8$}
 
@@ -107,8 +123,25 @@
 			[TODO]
 
 			\begin{equation}
-				D_{w_{euclidea}}(a,b) = \sqrt{w_x(a_x - b_x)^2 + w_y(a_y - b_y)^2} = \sqrt{0.2(a_x - b_x)^2 + 0.8(a_y - b_y)^2}
+				D_{w_{euclidean}}(a,b) = \sqrt{w_x(a_x - b_x)^2 + w_y(a_y - b_y)^2} = \sqrt{0.2(a_x - b_x)^2 + 0.8(a_y - b_y)^2}
 			\end{equation}
+
+			\begin{equation}
+				R_{w_{euclidean}} = \{3.0_e, 2.236_e, 2.924_e, 2.307_e, 2.961_c, 2.580_c, 2.828_c\}
+			\end{equation}
+
+			\begin{equation}
+				min(R_{w_{euclidean}},1) = \{ 2.236_e \}
+			\end{equation}
+
+			\begin{equation}
+				min(R_{w_{euclidean}},3) = \{ 2.236_e, 2.307_e, 2.580_c\}
+			\end{equation}
+
+			\begin{equation}
+				min(R_{w_{euclidean}},5) = \{ 2.236_e, 2.307_e, 2.580_c, 2.828_c, 2.924_e\}
+			\end{equation}
+
 
 		\subsection{Distancia de Manhattan}
 
@@ -119,6 +152,21 @@
 				D_{manhattan}(a,b) = |a_x - b_x| + |a_y - b_y|
 			\end{equation}
 
+			\begin{equation}
+				R_{manhattan} = \{4_e, 3_e, 2_e, 2_e, 3_c, 3_c, 5_c\}
+			\end{equation}
+
+			\begin{equation}
+				min(R_{manhattan},1) = \{ 2_e \}
+			\end{equation}
+
+			\begin{equation}
+				min(R_{manhattan},3) = \{ 2_e, 2_e, 3_e\}
+			\end{equation}
+
+			\begin{equation}
+				min(R_{manhattan},5) = \{ 2_e, 2_e, 3_e, 3_c, 3_c, \}
+			\end{equation}
 
 		\subsection{Distancia de Hamming}
 
@@ -129,6 +177,21 @@
 				D_{hamming}(a,b) = (a_x \neq b_x) + (a_y \neq b_y)
 			\end{equation}
 
+			\begin{equation}
+				R_{hamming} = \{2_e, 2_e, 1_e, 1_e, 2_c, 2_c, 2_c\}
+			\end{equation}
+
+			\begin{equation}
+				min(R_{manhattan},1) = \{ 1_e \}
+			\end{equation}
+
+			\begin{equation}
+				min(R_{manhattan},3) = \{ 1_e, 1_e, 2_e\}
+			\end{equation}
+
+			\begin{equation}
+				min(R_{manhattan},5) = \{ 1_e, 1_e, 2_e, 3_c, 3_c, \}
+			\end{equation}
 
 	\section{Dígitos manuscritos}
 
