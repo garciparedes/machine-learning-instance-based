@@ -214,7 +214,10 @@
 	\section{Dígitos manuscritos}
 
 		\paragraph{}
-		[TODO]
+		En esta sección se comparan los resultados para distintos valores de $k$ sobre un conjunto de datos de mayores dimensiones, tanto en cuanto al número de instancias que presenta como atributos de cada una de ellas. El conjunto de datos ha sido adaptado por \emph{D. Barber} para el libro \emph{Bayesian Reasoning and Machine Learning} \cite{barberBRML2012}.
+
+		\paragraph{}
+		Dicho conjunto de datos se corresponde con representaciones de mapas de bits formadas por $28^2 = 784$ atributos de carácter numérico que se refieren a dígitos numéricos. En concreto, el caso del conjunto de datos que se provee está formado únicamente por representaciones de \textbf{5} y \textbf{9}, que por su semenjanza en cuanto a simbología es necesario escoger tanto un clasificador como parámetros adecuados. El clasificador seleccionado, al igual que en la sección anterior, es $k$-vecinos más próximos. Para el experimentos se proveen dos conjuntos de datos, el primero de ellos referido a tareas de entrenamiento está formado por $684$ instancias que codifican el dígito $5$ y $621$ instancias que codifican el valor $9$, lo cual presenta un total de $684+621 = 1305$ instancias. A partir de este conjunto de datos se pretende ajustar el valor óptimo de $k$ para el cuál el clasificador de los mejores resultados. El experimento se ha realizado siguiendo una estrategia de \textbf{Validación Cruzada} de 10 particiones para $k \in \{1,2,...9\}$.
 
 		\begin{table}
 			\centering
@@ -231,17 +234,15 @@
 			\label{table:e2}
 		\end{table}
 
-
-
 		\begin{figure}
 			\begin{center}
 				\begin{tikzpicture}
 					\begin{axis}[
 						% only scale the axis, not the axis including the ticks and labels
-		        scale only axis=true,
-		        % set `width' and `height' to the desired values
-		        width=0.9\textwidth,
-		        height=0.3\textwidth,
+						scale only axis=true,
+						% set `width' and `height' to the desired values
+						width=0.9\textwidth,
+						height=0.3\textwidth,
 						]
 						\addplot table [x=k, y=error, col sep=comma] {data.csv};
 					\end{axis}
@@ -252,7 +253,26 @@
 		\end{figure}
 
 		\paragraph{}
-		[TODO]
+		Los resultados a nivel de \emph{Tasas de Error} obtenidos tras la realización del experimento se muestran de manera tabulada en la tabla \ref{table:e2} y de manera gráfica en la figura \ref{plot:e2}. Tal y como se puede apreciar, el valor $k$ que minimiza la tasa de error para el experimento realizado es $k = 3$. La siguiente labor es utilizar el segundo conjunto de datos, formado en este caso por $256$ instancias referidas al dígito $5$ y $352$ refiradas al $9$. Por tanto, el total de instancias en este conjunto de datos es $256 + 352 = 608$. Nótese que el particionamiento de estos dos conjuntos de datos no sigue una distribución estratificada, ya que el ratio del número de instancias de cada clase no es semejante.
+
+
+		\paragraph{}
+		El resultado final que se pide en esta sección es la clasificación del conjunto de datos de prueba mediante el entrenamiento del clasificador con el conjunto de entrenamiento utilizado para encontrar el valor $k$ óptimo ($k =3$). Los resultados se muestran en la tabla \ref{table:e3}. Tal y como se puede apreciar la tasa de error en este caso es del $0\%$, lo cual significa que todas las instancias han sido clasificadas correctamente.
+
+		\begin{table}
+			\centering
+			\small
+			\begin{tabu}{ | c | c | }
+				\hline
+				\multicolumn{2}{ | c | }{$K$-Vecinos más Próximos} \\ \hline
+				\multirow{2}{*}{Datos}& Tasa de Error ($K=$) \\ \cline{2-2}
+															& \emph{3} \\ \hline
+				Pruebae								& $0.0\%$	\\
+				\hline
+			\end{tabu}
+			\caption{Tasa de error obtenida tras realizar un experimento de Validación cruzada de 10 particiones con el clasificador \emph{K-NN} para $k \in \{1,2,...,9\}$}
+			\label{table:e3}
+		\end{table}
 
 
 %-----------------------------
