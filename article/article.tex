@@ -21,7 +21,7 @@
 %-----------------------------
 
 	\begin{abstract}
-		\noindent [TODO ]
+		\noindent En este documento se describe la estrategia de clasificación supervisada basada en instancias del algoritmo \emph{K-NN}. También se describen las medidas de distancia utilizadas comunmente por los algoritmos de aprendizaje que se apoyan en dicha estrategia. Por último, se realizan dos casos de prueba que demuestran, el funcionamiento de dicho clasificicador en la sección \ref{sec:e1}, y las bondades a nivel de resultados así como la necesidad de ajuste de parámetros en la sección \ref{sec:e2}.
 	\end{abstract}
 
 %-----------------------------
@@ -29,22 +29,13 @@
 %-----------------------------
 
 
-	\section{Introducción}
-	\label{sec:introducción}
+	\section{$K$-vecinos más cercanos}
 
 		\paragraph{}
 		[TODO]
 
-		\subsection{$K$-vecinos más cercanos}
-
-			\paragraph{}
-			[TODO]
-
 	\section{La figura \ref{e1:plot} muestra un conjunto de entrenamiento con ejemplos positivos (estrellas) y negativos (círculos). Se desea clasificar la nueva instancia $<3,3>$ mediante el algoritmo $K$-vecinos más próximos. Obtener la clasificación para los valores de $K=\{ 1, 3, 5\}$ utilizando las distancias indicadas a continuación}
 	\label{sec:e1}
-
-		\paragraph{}
-		En este ejercicio se realiza una clasificación mediante el algoritmos de clasificación basado en instancias \emph{K-NN}. El conjunto de datos está compuesto por $7$ instancias caracterizadas por $2$ atributos númericos de caracter entero y la clase de destino de tipo binario (\emph{ESTRELLAS} o \emph{CIRCULOS}). Puesto que el espacio del conjunto de datos está formado por dos dimensiones este se puede representar de forma gráfica tal y como se muestra en la figura \ref{e1:plot}.
 
 		\begin{figure}
 			\begin{center}
@@ -53,6 +44,9 @@
 			\caption{Representación Gráfica del problema \ref{sec:e1}}
 			\label{e1:plot}
 		\end{figure}
+
+		\paragraph{}
+		En este ejercicio se realiza una clasificación mediante el algoritmos de clasificación basado en instancias \emph{K-NN}. El conjunto de datos está compuesto por $7$ instancias caracterizadas por $2$ atributos númericos de caracter entero y la clase de destino de tipo binario (\emph{ESTRELLAS} o \emph{CIRCULOS}). Puesto que el espacio del conjunto de datos está formado por dos dimensiones este se puede representar de forma gráfica tal y como se muestra en la figura \ref{e1:plot}.
 
 		\paragraph{}
 		En las ecuaciones \eqref{eq:estrellas} y \eqref{eq:circulos} se representan las instancias de cada una de las dos clases en forma de conjuntos de coordenadas. En la ecuación \eqref{eq:instancia} se muestran las coordenadas de la instancia que se desea clasificar.
@@ -212,6 +206,7 @@
 			\end{align}
 
 	\section{Dígitos manuscritos}
+	\label{sec:e2}
 
 		\paragraph{}
 		En esta sección se comparan los resultados para distintos valores de $k$ sobre un conjunto de datos de mayores dimensiones, tanto en cuanto al número de instancias que presenta como atributos de cada una de ellas. El conjunto de datos ha sido adaptado por \emph{D. Barber} para el libro \emph{Bayesian Reasoning and Machine Learning} \cite{barberBRML2012}.
