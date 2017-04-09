@@ -32,7 +32,13 @@
 	\section{$K$-vecinos más cercanos}
 
 		\paragraph{}
-		[TODO]
+		El algoritmo de clasificación denominado \emph{$K$-vecinos más cercanos} se apoya en la inticción de cercanía de la instancia a clasificar respecto de las instancias aprendidas previamente en la fase de entrenamiento. Por tanto, se enmarca dentro de la categoría de aprendizaje basado en instancias. Esta estrategía tienen un coste muy reducido en la fase de aprendizaje (ya que se limita al simple almacenamiento de las instancias de entrenamiento) pero por contra el coste de en la fase de clasificación es elevado.
+
+		\paragraph{}
+		La clasificación se basa en el cálculo de la distancia de la nueva instancia a clasificar respecto de cada una de las instancias del conjunto aprendido previamente, lo cual presenta un coste lineal respecto de dicho conjunto. El siguiente paso es la selección de las $k$ instancias más próximas a la instancia que se pretende clasificar. La clase de destino que se designa a la nueva instancia es la mayoritaria en dicho conjunto.
+
+		\paragraph{}
+		Este tipo de aprendizaje se caracteriza por no estar basado en medidas de error, si no de distancia o cercanía. En las siguientes secciones se muestran distintas medidas de distancia comunmente utilizadas por el algoritmo \emph{K-NN}. A pesar del elevado coste de clasificación y su gran simplicidad algorítmica, mediante la observación de resultados se ha demostrado que es una estrategía muy similar a nivel de tasas de error respecto de otras más sofisticadas en una gran cantidad de casos.
 
 	\section{La figura \ref{e1:plot} muestra un conjunto de entrenamiento con ejemplos positivos (estrellas) y negativos (círculos). Se desea clasificar la nueva instancia $<3,3>$ mediante el algoritmo $K$-vecinos más próximos. Obtener la clasificación para los valores de $K=\{ 1, 3, 5\}$ utilizando las distancias indicadas a continuación}
 	\label{sec:e1}
@@ -209,7 +215,7 @@
 	\label{sec:e2}
 
 		\paragraph{}
-		En esta sección se comparan los resultados para distintos valores de $k$ sobre un conjunto de datos de mayores dimensiones, tanto en cuanto al número de instancias que presenta como atributos de cada una de ellas. El conjunto de datos ha sido adaptado por \emph{D. Barber} para el libro \emph{Bayesian Reasoning and Machine Learning} \cite{barberBRML2012}.
+		En esta sección se comparan los resultados para distintos valores de $k$ sobre un conjunto de datos de mayores dimensiones, tanto en cuanto al número de instancias que presenta como atributos de cada una de ellas. El conjunto de datos ha sido adaptado por \emph{D. Barber} para el libro \emph{Bayesian Reasoning and Machine Learning} \cite{barberBRML2012}. En dicha sección se ha utilizado la implementación en \emph{WEKA} \cite{tool:weka} del algoritmo de los \emph{$K$-vecinos más cercanos} denominada \emph{IBK}. Como medida de distancia se ha escogido la seleccionada por defecto (\emph{Distancia Euclídea}). 
 
 		\paragraph{}
 		Dicho conjunto de datos se corresponde con representaciones de mapas de bits formadas por $28^2 = 784$ atributos de carácter numérico que se refieren a dígitos numéricos. En concreto, el caso del conjunto de datos que se provee está formado únicamente por representaciones de \textbf{5} y \textbf{9}, que por su semenjanza en cuanto a simbología es necesario escoger tanto un clasificador como parámetros adecuados. El clasificador seleccionado, al igual que en la sección anterior, es $k$-vecinos más próximos. Para el experimentos se proveen dos conjuntos de datos, el primero de ellos referido a tareas de entrenamiento está formado por $684$ instancias que codifican el dígito $5$ y $621$ instancias que codifican el valor $9$, lo cual presenta un total de $684+621 = 1305$ instancias. A partir de este conjunto de datos se pretende ajustar el valor óptimo de $k$ para el cuál el clasificador de los mejores resultados. El experimento se ha realizado siguiendo una estrategia de \textbf{Validación Cruzada} de 10 particiones para $k \in \{1,2,...9\}$.
